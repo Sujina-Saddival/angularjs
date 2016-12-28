@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Use of $watch and $digest</title>
+	<meta charset="utf-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="watch.js"></script>
+</head>
+<body ng-app = "watchApp" ng-controller = "watchCtrl">
+<ul>
+
+
+<h2>angular $watch: update the DOM with newValue</h2>
+<input type="text" ng-model = "myWatch">
+		You modified {{counter}} . times<br>
+
+
+<h2>angular $digest: maily acts as cycle</h2>
+Random number is: {{randomnumber}}<br><br>
+<button type="button" value="generate random number" class="random">Click me for random number</button>
+</body>
+</html>

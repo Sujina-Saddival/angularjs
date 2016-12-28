@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html  ng-app="directoryApp" ng-controller="directoryController as dirList">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
+</script>
+<script type="text/javascript" src="directory.js"></script>
+<style type="text/css">
+	.under-fifty{
+		background-color: yellow;
+		color: black;
+	}
+	.over-fifty{
+		background-color: red;
+		color: green;
+	}
+
+	
+	.showdata{
+		display: block;
+	}
+	
+	.hidedata{
+		display: none;
+	}
+</style>
+<body>
+
+<div style="background-color:{{color}}" >
+ 
+	<p>Input something in the input box:</p>
+	<p>Color: <input type="text" ng-model="color" placeholder="Enter color"></p>
+	<p>Name: <input type="text" ng-model="search" placeholder="Enter name to be searched"></p>
+	<p><b>Good morning,</b>{{color}}</p>
+	<button ng-click="dirList.capture('qwinix')">Submit</button>
+
+	<form ng-submit="dirList.push()">
+		<input type="text" placeholder="Enter name" ng-model="dirList.name">
+		<input type="number" placeholder="Enter age" ng-model="dirList.age">
+		<input type="submit" value="submit">
+	</form>
+
+	<button ng-click="dirList.setflag()">Submit</button>
+	<ul id="hide">
+    	<li ng-repeat="list in dirList.list | 
+    			   filter:search | 
+    			   orderBy:'name'">
+    			   <!-- or  ng-class="{'under-fifty':list.age < 50,'over-fifty':list.age > 50}" -->
+    {{list.name | uppercase}} -> {{list.age | currency:'&#8377;':0}}  </li>
+		</ul>
+</div>
+	
+	<button ng-click="dirList.toggleshow()">Toggle</button>
+	<div ng-show="show1=='msg1'">Its morning</div>
+	<div ng-show="show1=='msg2'">Its afternoon</div>
+
+	<button ng-click="dirList.hideshow()">Hide/Show</button>
+	<div ng-show="show == 'msg1'">Its morning</div>
+
+
+<!-- <p>Its ng-bind</p><h1 ng-bind="name"></h1>
+<p>Its data-ng-bind</p><h2 data-ng-bind="name"></h2>
+ -->
+
+</body>
+</html>

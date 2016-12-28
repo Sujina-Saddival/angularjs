@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Use of $HTTP</title>
+	<meta charset="utf-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="http.js"></script>
+</head>
+<body ng-app = "HttpApp" ng-controller = "httpCtrl">
+<ul>
+<h2>Name and Age of a programmers</h2>
+<input type="text" ng-model = "searchBox">
+	<li ng-repeat = "person in persons | filter:searchBox">
+		{{person.Name + " : " +  person.Age}}
+	</li>
+</ul>
+</body>
+</html>

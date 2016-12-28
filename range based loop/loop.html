@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Use of Loop</title>
+	<meta charset="utf-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="loop.js"></script>
+</head>
+<body ng-app = "loopApp" ng-controller = "loopCtrl">
+<ul>
+<h2>Rang Based Loop</h2>
+<!-- with contact with controller -->
+	<li ng-repeat = "i in myLoop">
+		{{i}}<br>
+	</li>
+	<!-- manually providing the range -->
+	<h2>manually providing the range</h2>
+	<li ng-repeat = "i in [10,20,30,40,50,60]">
+		{{i}}<br>
+	</li>
+	<h2>Creating an Array and displaying with its index</h2>
+	<li ng-repeat = "i in indexRange track by $index">
+		Qwinix technology<br>
+	</li>
+</ul>
+</body>
+</html>
